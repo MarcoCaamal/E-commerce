@@ -1,0 +1,25 @@
+﻿<div class="bar">
+    <div class="bar__menu-btn-section">
+        <div class="menu">
+            <a asp-controller="Home" asp-action="Index" class="logo">
+                <img src="~/assets/logo.svg" alt="Page Logo" />
+            </a>
+
+            <i class="fa-solid fa-bars menu__btn"></i>
+            <i class="fa-solid fa-x menu__btn menu__btn--x"></i>
+        </div>
+
+        <div class="categories d-none">
+            <i class="fa-solid fa-bars categories__icon"></i>
+            <p class="categories__text">Categories</p>
+        </div>
+
+        <partial name="Components/_SearchBar"></partial>
+    </div>
+
+    <nav class="navbar d-none">
+        <a href="#">Contacts</a>
+        <a href="#">Help</a>
+    </nav>
+
+</div>
