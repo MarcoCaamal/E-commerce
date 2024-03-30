@@ -24,7 +24,8 @@ namespace Repository.Repositories
 
         public async Task<int> Delete(int id)
         {
-            TEntity entity = _entities.FirstOrDefault(e => e.Id == id) ?? throw new ArgumentNullException("entity null");
+            TEntity entity = _entities.FirstOrDefault(e => e.Id == id)
+                ?? throw new ArgumentNullException("entity null");
             _context.Remove(entity);
             return await _context.SaveChangesAsync();
         }
