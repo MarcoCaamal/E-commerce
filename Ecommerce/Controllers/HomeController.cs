@@ -15,6 +15,7 @@ namespace Ecommerce.Controllers
 
         public IActionResult Index()
         {
+            ViewBag.IncludeHero = true;
             return View();
         }
 

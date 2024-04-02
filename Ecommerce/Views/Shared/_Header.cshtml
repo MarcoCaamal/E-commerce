@@ -1,7 +1,15 @@
-﻿<header>
+﻿@{
+    bool? includeHero = ViewBag.IncludeHero;
+}
+
+<header>
     <div class="container">
-        <partial name="_Bar">
+        <partial name="_Bar" />
     </div>
 
-    <partial name="_Hero">
+    @if (includeHero is true && includeHero is not null)
+    {
+        <partial name="_Hero" />
+    }
+
 </header>
