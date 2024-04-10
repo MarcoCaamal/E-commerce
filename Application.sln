@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Repository", "Repository\Re
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Service", "Service\Service.csproj", "{D6A672E2-6A9D-4544-94C6-68B3AA8265FE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{1043CEFA-1BDC-4E24-8346-A7A02857736A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common", "Common\Common.csproj", "{1043CEFA-1BDC-4E24-8346-A7A02857736A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API", "API\API.csproj", "{4E90C19D-F459-497C-BA8F-DF5393F9EDB2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{1043CEFA-1BDC-4E24-8346-A7A02857736A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1043CEFA-1BDC-4E24-8346-A7A02857736A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1043CEFA-1BDC-4E24-8346-A7A02857736A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E90C19D-F459-497C-BA8F-DF5393F9EDB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E90C19D-F459-497C-BA8F-DF5393F9EDB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E90C19D-F459-497C-BA8F-DF5393F9EDB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E90C19D-F459-497C-BA8F-DF5393F9EDB2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
