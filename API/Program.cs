@@ -1,6 +1,10 @@
+using Domain.Entities.Users;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
+using Repository.Context;
 using Repository.Extensions;
+using Service.Services;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -26,6 +30,12 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             ClockSkew = TimeSpan.Zero
         };
     });
+
+builder.Services.AddTransient<IUserStore<ApplicationUser>, UserStoreService>();
+builder.Services.AddTransient<SignInManager<ApplicationUser>>();
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
+    .AddEntityFrameworkStores<ApplicationDbContext>()
+    .AddDefaultTokenProviders();
 
 var app = builder.Build();
 
