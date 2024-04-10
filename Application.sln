@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34009.444
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BaseApp", "Ecommerce\BaseApp.csproj", "{C560361D-57EE-46AB-B441-7B5B6678C680}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{EF0323C8-5382-49C0-9AA3-1CDD0C837856}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Repository", "Repository\Repository.csproj", "{19E6F16D-7580-4E1B-AB32-1696E394086F}"
@@ -21,10 +19,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C560361D-57EE-46AB-B441-7B5B6678C680}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C560361D-57EE-46AB-B441-7B5B6678C680}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C560361D-57EE-46AB-B441-7B5B6678C680}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C560361D-57EE-46AB-B441-7B5B6678C680}.Release|Any CPU.Build.0 = Release|Any CPU
 		{EF0323C8-5382-49C0-9AA3-1CDD0C837856}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{EF0323C8-5382-49C0-9AA3-1CDD0C837856}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EF0323C8-5382-49C0-9AA3-1CDD0C837856}.Release|Any CPU.ActiveCfg = Release|Any CPU

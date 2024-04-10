@@ -1,13 +1,7 @@
 ﻿using Domain.Entities.Shop;
 using Domain.Entities.Users;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Repository.Context
 {
@@ -25,10 +19,9 @@ namespace Repository.Context
                 .HasKey(c => c.Id);
         }
 
-        public DbSet<ApplicationUser> ApplicationUsers { get; set; }
-        public DbSet<Product> Products { get; set; }
-        public DbSet<Category> Categories { get; set; }
-        public DbSet<ProductCategory> ProductsCategories { get; set; }
-
+        public DbSet<ApplicationUser> ApplicationUsers => Set<ApplicationUser>();
+        public DbSet<Product> Products => Set<Product>();
+        public DbSet<Category> Categories => Set<Category>();
+        public DbSet<ProductCategory> ProductsCategories => Set<ProductCategory>();
     }
 }

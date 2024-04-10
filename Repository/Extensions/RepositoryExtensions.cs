@@ -11,8 +11,10 @@ namespace Repository.Extensions
 
         public static void AddConfigureRepositoryLayer(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddDbContext<ApplicationDbContext>(options => 
-                options.UseSqlServer(configuration.GetConnectionString(ConnectionString)));
+            var dbServerVersion = ServerVersion.AutoDetect(configuration.GetConnectionString(ConnectionString));
+
+            services.AddDbContext<ApplicationDbContext>(options =>
+                options.UseMySql(configuration.GetConnectionString(ConnectionString), dbServerVersion));
         }
     }
 }
