@@ -2,7 +2,7 @@
 
 namespace Domain.Entities.Shop
 {
-    public class Product : BaseEntity
+    public class Product : BaseEntity<int>
     {
         [Required]
         [StringLength(maximumLength: 255)]

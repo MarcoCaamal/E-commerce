@@ -1,7 +1,7 @@
 ﻿using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Repository.Context;
-using Repository.Interfaces;
+using Repository.Interfaces.Repository;
 using System;
 using System.Collections.Generic;
 using System.Formats.Asn1;
@@ -11,45 +11,50 @@ using System.Threading.Tasks;
 
 namespace Repository.Repositories
 {
-    public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : BaseEntity
+    public class GenericRepository<TEntity, TId> : IGenericRepository<TEntity, TId> where TEntity : BaseEntity<TId>
     {
-        private readonly ApplicationDbContext _context;
-        private DbSet<TEntity> _entities;
-
+        public readonly ApplicationDbContext _context;
         public GenericRepository(ApplicationDbContext context)
         {
             _context = context;
-            _entities = _context.Set<TEntity>();
         }
 
-        public async Task<int> Delete(int id)
+        public async Task<TEntity?> GetById(TId id) => await _context.Set<TEntity>().FindAsync(id);
+
+        public IQueryable<TEntity> GetAll() => _context.Set<TEntity>().AsQueryable();
+
+        public async Task<int> HardDelete(TId id)
         {
-            TEntity entity = _entities.FirstOrDefault(e => e.Id == id)
-                ?? throw new ArgumentNullException("entity null");
-            _context.Remove(entity);
+            TEntity? entity = await GetById(id);
+            if (entity is null) return 0;
+
+            _context.Set<TEntity>().Remove(entity);
+
             return await _context.SaveChangesAsync();
-        }
-
-        public async Task<TEntity?> Get(int id)
-        {
-            TEntity? entity = await _entities.FirstOrDefaultAsync(e => e.Id == id);
-            return entity;
-        }
-
-        public async Task<IEnumerable<TEntity>> GetAll()
-        {
-            return await _entities.ToListAsync();
         }
 
         public async Task<int> Insert(TEntity entity)
         {
-            _context.Add(entity);
+            await _context.Set<TEntity>().AddAsync(entity);
+            return await _context.SaveChangesAsync();
+        }
+
+        public async Task<int> SoftDelete(TId id)
+        {
+            TEntity? entity = await GetById(id);
+            if (entity == null) return 0;
+
+            entity.IsDeleted = true;
+            entity.UpdateAt = DateTime.Now;
+
+            _context.Set<TEntity>().Update(entity);
+
             return await _context.SaveChangesAsync();
         }
 
         public async Task<int> Update(TEntity entity)
         {
-            _context.Update(entity);
+            _context.Set<TEntity>().Update(entity);
             return await _context.SaveChangesAsync();
         }
     }
